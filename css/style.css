@@ -10,9 +10,12 @@ html, body {
   padding: 0;
 }
 
-.hero {
+.full-section {
   min-height: 100vh;
   background-color: #F4F1DE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .theMap {
@@ -20,8 +23,6 @@ html, body {
   stroke: #F5F5F6;
 }
 
-.chart-container {
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-gap: 20px;
+#chart {
+  width: 80%;
 }
