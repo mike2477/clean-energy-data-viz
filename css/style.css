@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+*{
+font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  min-height: 100vh;
+  background-color: #F4F1DE;
+}
+
+.theMap {
+  fill: #E0E2E4;
+  stroke: #F5F5F6;
+}
+
+.chart-container {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-gap: 20px;
+}
