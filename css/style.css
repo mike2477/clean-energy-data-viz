@@ -8,14 +8,14 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #F4F1DE;
 }
 
-.full-section {
-  min-height: 100vh;
-  background-color: #F4F1DE;
+.center-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 24px;
 }
 
 .theMap {
@@ -24,5 +24,5 @@ html, body {
 }
 
 #chart {
-  width: 80%;
+  width: 1120px;
 }
