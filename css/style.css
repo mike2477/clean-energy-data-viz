@@ -127,6 +127,10 @@ html, body {
   text-align: center;
 }
 
+.beige-bg {
+  background-color: #F4F1DE;
+}
+
 /* Sticky / scrolly */
 
 .sticky-container {

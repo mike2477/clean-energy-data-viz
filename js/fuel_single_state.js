@@ -37,7 +37,7 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
     const yAccessor = d => d3.sum(fuelsToShow, fuel => d[fuel]);
   
     const xScale = d3.scaleTime()
-      .domain([new Date(2000, 0, 1), new Date(2020, 0, 1)])
+      .domain([new Date(2001, 0, 1), new Date(2022, 0, 1)])
       .range([0, width]);
   
     const yScale = d3.scaleLinear()
@@ -46,12 +46,12 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
   
     // create lines
     const fuelColors = {
-        coal_proportion: "#DF7A5F",
-        natural_gas_proportion: "#7f8c8d",
-        hydroelectric_proportion: "#5E60CE",
-        nuclear_proportion: "#3D405B",
-        wind_proportion: "#80B29B",
-        solar_proportion: "#F1CC90"
+        coal_share: "#DF7A5F",
+        natural_gas_share: "#F1CC90",
+        conventional_hydroelectric_share: "#5E60CE",
+        nuclear_share: "#3D405B",
+        wind_share: "#80B29B",
+        all_utility_scale_solar_share: "#F1CC90"
     };
 
     for (const fuelType of fuelsToShow) {
@@ -85,4 +85,4 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
   }
   
   // example usage
-  drawSingleState("California", ".scrolly-chart-1", ["solar_proportion", "natural_gas_proportion", "hydroelectric_proportion", "nuclear_proportion", "wind_proportion"]);
+  drawSingleState("California", ".scrolly-chart-1", ["all_utility_scale_solar_share", "natural_gas_share", "conventional_hydroelectric_share", "nuclear_share", "wind_share"]);

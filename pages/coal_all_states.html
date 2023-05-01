@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- Required meta tags -->
+	<title>The decline of coal in every state</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+  <!-- JS -->
+  <script src="../js/d3.min.js"></script>
+  <script src="../js/fuel_single_line.js"></script>
+  <script src="../js/all_coal.js"></script>
+
+
+</head>
+
+<body>
+  <section class="beige-bg">
+    <div class="center-container">
+      <h2>Share of generation</h2>
+      <label for="sort">Sort by: </label>
+      <select id="sort" onchange="sortCharts()">
+        <option value="alphabetical">Alphabetical</option>
+        <option value="largest_share">Largest Coal Share</option>
+        <option value="smallest_share">Smallest Coal Share</option>
+      </select>
+    </div>
+    <div class="center-container">
+        <div id="chart"></div>
+    </div>
+  </section>
+</body>

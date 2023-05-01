@@ -1,5 +1,5 @@
 // create d3 function to create line chart
-async function drawLineChart(stateName) {
+async function drawSingleLine(stateName, fuel) {
 
   // access data
   const dataset = await d3.json("../data/fuel_trends.json")
@@ -21,7 +21,7 @@ async function drawLineChart(stateName) {
 
   // accessors
   const xAccessor = d => new Date(d.year, 0, 1)
-  const yAccessor = d => d.coal_share
+  const yAccessor = d => d[fuel]
 
   // scales
   const xScale = d3.scaleTime()
@@ -32,7 +32,6 @@ async function drawLineChart(stateName) {
     .domain([0, 1])
     .range([height, 0])
 
-
   // create title
   svg.append("text")
     .attr("x", width / 2)
@@ -42,27 +41,16 @@ async function drawLineChart(stateName) {
     .attr("font-weight", "bold")
     .text(stateName);
 
-  // create lines
-  const fuelColors = {
-    coal_share: "#DF7A5F",
-    natural_gas_share: "#F1CC90",
-    conventional_hydroelectric_share: "#5E60CE",
-    nuclear_share: "#3D405B",
-    wind_share: "#80B29B"
-  };
+  const lineGenerator = d3.line()
+    .x(d => xScale(xAccessor(d)))
+    .y(d => yScale(yAccessor(d)))
 
-  for (const fuelType of ["coal_share", "natural_gas_share", "conventional_hydroelectric_share", "nuclear_share", "wind_share"]) {
-    const lineGenerator = d3.line()
-      .x(d => xScale(xAccessor(d)))
-      .y(d => yScale(d[fuelType]));
-
-    svg.append("path")
-      .datum(stateData)
-      .attr("d", lineGenerator)
-      .attr("fill", "none")
-      .attr("stroke", fuelColors[fuelType])
-      .attr("stroke-width", 2);
-  }
+  svg.append("path")
+    .datum(stateData)
+    .attr("d", lineGenerator)
+    .attr("fill", "none")
+    .attr("stroke", "#DF7A5F")
+    .attr("stroke-width", 2);
 
   const xAxis = d3.axisBottom(xScale)
     .ticks(4);
@@ -80,3 +68,5 @@ async function drawLineChart(stateName) {
     .call(yAxis);
 
 }
+
+

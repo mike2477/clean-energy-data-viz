@@ -10,6 +10,6 @@ async function drawSorted (fuel) {
     sortedData.forEach(d => drawLineChart(d.stateName))
   
   }
+
   
-  
-  drawSorted("wind_proportion")
+  drawSorted("wind_share")
