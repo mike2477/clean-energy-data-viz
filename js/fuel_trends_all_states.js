@@ -80,8 +80,3 @@ async function drawLineChart(stateName) {
     .call(yAxis);
 
 }
-
-statesToShow = ["California", "New York", "Florida", "Iowa"]
-
-// for each loop to call drawLineChart function for each state in statesToShow
-statesToShow.forEach(drawLineChart)
