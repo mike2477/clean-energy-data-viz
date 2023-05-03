@@ -104,6 +104,15 @@ html, body {
   padding-top: 24px;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-screen {
+  min-height: 100vh;
+}
+
 .theMap {
   fill: #E0E2E4;
   stroke: #F5F5F6;
@@ -177,4 +186,11 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Bubbles / climate deniers page */
+
+#bubble-svg {
+  width: 700px;
+  height: 500px;
 }
