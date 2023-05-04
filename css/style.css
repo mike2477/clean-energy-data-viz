@@ -140,11 +140,19 @@ html, body {
   background-color: #F4F1DE;
 }
 
+/* All coal page */
+
+#coal-header-container {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 /* Sticky / scrolly */
 
 .sticky-container {
   margin: 3rem auto;
-  max-width: 60rem;
   padding: 1rem;
 }
 
@@ -155,6 +163,9 @@ html, body {
   top: 1vh;
   height: 90vh;
   bottom: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sticky-relative {
@@ -165,7 +176,7 @@ html, body {
 }
 
 .first-step {
-  min-height: 50vh;
+  min-height: 33vh;
   margin-bottom: 100vh;
   margin-top: 25vh;
   padding: 3rem;
@@ -180,12 +191,16 @@ html, body {
   object-fit: cover;
 }
 
-.scrolly-chart-1 {
+#scrolly-chart-1 {
   width: 800px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 600px;
+}
+
+@media (max-width: 767px) {
+  #scrolly-chart-1 {
+    width: 90%; /* Change width to a percentage for smaller screens */
+    height: 60%; 
+  }
 }
 
 /* Bubbles / climate deniers page */
