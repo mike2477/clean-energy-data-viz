@@ -16,6 +16,10 @@ p, text {
   font-family: 'PT Serif', serif;
 }
 
+label {
+  font-family: 'Inter', sans-serif;
+}
+
 h1 {
   font-size: 3rem;
   font-weight: bold;
@@ -147,6 +151,17 @@ html, body {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+select {
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  padding: 8px 8px;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #3D405B;
+  cursor: pointer;
 }
 
 /* Sticky / scrolly */
