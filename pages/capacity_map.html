@@ -20,15 +20,16 @@
 		<div id="user-input-container">
 			<div id="year-input-container">
 				<label for="year-select">Year:</label>
-				<input type="range" id="year-slider" min="2012" max="2022" value="2018">
+				<input type="range" id="year-slider" min="2002" max="2022" value="2022">
+				<span id="year-display">2022</span>
 			</div>
 			<div id="'tech-input-container">
 				<label for="tech-select">Technology:</label>
 				<select class="tech-select" id='tech-dropdown'>
-					<option value="">--Choose a technology--</option>
-					<option value="Solar Photovoltaic">Solar Photovoltaic</option>
+					<option value="Solar Photovoltaic" selected>Solar Photovoltaic</option>
 					<option value="Onshore Wind Turbine">Onshore Wind Turbine</option>
 				</select>
+				<button id="pause-button">Pause</button>
 			</div>
 		</div>
 		<div id="map-wrapper"></div>
