@@ -8,8 +8,13 @@ window.onload = function() {
 
   let intervalID = setInterval(() => {
     const yearSlider = document.getElementById("year-slider");
-    yearSlider.value = (parseInt(yearSlider.value) + 1 - 2005) % 18 + 2005;
-    updateMap();
+    const currentYear = parseInt(yearSlider.value);
+    if (currentYear < 2022) {
+      yearSlider.value = currentYear + 1;
+      updateMap();
+    } else {
+      clearInterval(intervalID);
+    }
   }, 1000);
 
   document.getElementById("year-slider").addEventListener("change", updateMap);
@@ -22,8 +27,13 @@ window.onload = function() {
     } else {
       intervalID = setInterval(() => {
         const yearSlider = document.getElementById("year-slider");
-        yearSlider.value = (parseInt(yearSlider.value) + 1 - 2005) % 18 + 2005;
-        updateMap();
+        const currentYear = parseInt(yearSlider.value);
+        if (currentYear < 2022) {
+          yearSlider.value = currentYear + 1;
+          updateMap();
+        } else {
+          clearInterval(intervalID);
+        }
       }, 1000);
       document.getElementById("pause-button").innerText = "Pause";
     }

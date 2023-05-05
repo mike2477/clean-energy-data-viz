@@ -209,3 +209,11 @@ html, body {
   width: 700px;
   height: 500px;
 }
+
+/* Solar animation */
+
+
+#animation-container {
+  display: flex;
+  flex-direction: row;
+}
