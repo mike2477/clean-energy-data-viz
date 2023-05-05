@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- Required meta tags -->
+	<title>Capacity map</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+  <!-- JS -->
+  <script src="../js/d3.min.js"></script>
+  <script src="../js/capacity_map_animated.js"></script>
+	<script src="../js/draw_capacity_map.js"></script>
+
+</head>
+
+<body>
+  <div class="center-container flex-col">
+    <div id="user-input-container">
+      <div id="year-input-container">
+        <label for="year-select">Year:</label>
+        <input type="range" id="year-slider" min="2005" max="2022" value="2005">
+        <span id="year-display">2005</span>
+        <button id="pause-button">Pause</button>
+      </div>
+    </div>
+    <div id="map-wrapper"></div>
+  </div>  
+</body>
