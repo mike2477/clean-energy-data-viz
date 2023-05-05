@@ -18,15 +18,21 @@
 </head>
 
 <body>
-  <section class="beige-bg">
-    <div class="center-container">
-      <h2>Share of generation</h2>
-      <label for="sort">Sort by: </label>
-      <select id="sort" onchange="sortCharts()">
-        <option value="alphabetical">Alphabetical</option>
-        <option value="largest_share">Largest Coal Share</option>
-        <option value="smallest_share">Smallest Coal Share</option>
-      </select>
+  <section class="beige-bg full-screen">
+    <div id="coal-header-container" class="center-container flex-col">
+      <h2>The decline of coal in every state</h2>
+      <h3 class="thin-h">
+        In the last two decades, the share of electricity generated from coal has fallen in every state.
+        But in some states the change has been more dramatic than others.
+      </h3>
+      <div id="select-container">
+        <label for="sort">Sort by: </label>
+        <select id="sort" onchange="sortCharts()">
+          <option value="alphabetical">Alphabetical</option>
+          <option value="largest_share">Largest Coal Share</option>
+          <option value="smallest_share">Smallest Coal Share</option>
+        </select>
+      </div>
     </div>
     <div class="center-container">
         <div id="chart"></div>

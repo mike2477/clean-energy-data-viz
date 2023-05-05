@@ -6,8 +6,8 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
   
     // chart dimensions
     const containerDiv = document.querySelector(chartDiv);
-    const width = containerDiv.offsetWidth * 0.9;
-    const height = containerDiv.offsetHeight * 0.9;
+    const width = containerDiv.offsetWidth * 0.8;
+    const height = containerDiv.offsetHeight * 0.8;
     const margin = {
         top: containerDiv.offsetHeight * 0.1, 
         right: containerDiv.offsetWidth * 0.1, 
@@ -28,7 +28,7 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
       .attr("x", width / 2)
       .attr("y", -margin.top / 2)
       .attr("text-anchor", "middle")
-      .attr("font-size", "16px")
+      .attr("font-size", "24px")
       .attr("font-weight", "bold")
       .text(stateName);
   
@@ -64,7 +64,7 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
         .attr("d", lineGenerator)
         .attr("fill", "none")
         .attr("stroke", fuelColors[fuelType])
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 3);
     }
   
     // create axes
@@ -84,5 +84,4 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
   
   }
   
-  // example usage
-  drawSingleState("California", ".scrolly-chart-1", ["all_utility_scale_solar_share", "natural_gas_share", "conventional_hydroelectric_share", "nuclear_share", "wind_share"]);
+  

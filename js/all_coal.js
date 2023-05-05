@@ -1,9 +1,13 @@
 let dataset;
 
+// when coal_all.html loads, load the data and draw charts for each state alphabetically
 async function loadAndDrawCharts() {
   dataset = await d3.json("../data/fuel_trends.json");
   drawAllCoalStates("alphabetical");
 }
+
+// runs function in fuel_single_line.js to draw a single line for each state 
+// based on user input from sortCharts()
 
 function drawAllCoalStates(sortBy) {
   // Clear the chart container
@@ -33,6 +37,7 @@ function drawAllCoalStates(sortBy) {
   }
 }
 
+// runs on user input change
 function sortCharts() {
   const sortBy = document.getElementById("sort").value;
   drawAllCoalStates(sortBy);
