@@ -1,13 +1,15 @@
 
-async function drawMap() {
+async function drawMap(year, technology) {
 
   // Access data
   const plantDataset = await d3.csv("../data/all-power-plants.csv", d3.autoType)
   const usMapJson = await d3.json("../data/us-map-geojson.json")
 
   // filter by year
-  const filteredPlantDataset = plantDataset.filter((d) => d.op_year == 2022 && d.technology == "Solar Photovoltaic");
+  const filteredPlantDataset = plantDataset.filter((d) => d.op_year == year && d.technology == technology);
 
+  // Clear existing map before drawing a new one
+  d3.select("#map-wrapper svg").remove();
 
   // plant accessors and filters
   const plantLat = d => d.lat
@@ -30,7 +32,6 @@ async function drawMap() {
     .append("svg")
       .attr("width", dimensions.width)
       .attr("height", dimensions.height)
-      .attr("viewBox", "0 0 100% 100%")
   
   const mapGroup = wrapper.append("g") // group to keep things organized
   const usMap = mapGroup.selectAll("#theMap") // take GeoJSON and turn into US Map svg
@@ -62,4 +63,17 @@ async function drawMap() {
 
 }
 
-drawMap()
+function updateMap() {
+  const year = document.getElementById("year-slider").value;
+  const technology = document.getElementById("tech-dropdown").value;
+  if (technology) {
+    drawMap(year, technology);
+  }
+}
+
+window.onload = function() {
+  document.getElementById("year-slider").addEventListener("input", updateMap);
+  document.getElementById("tech-dropdown").addEventListener("change", updateMap);
+
+  drawMap(2018, "Solar Photovoltaic");
+}

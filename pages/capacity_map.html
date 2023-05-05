@@ -11,20 +11,26 @@
 
   <!-- JS -->
   <script src="../js/d3.min.js"></script>
-  <script src="../js/turbine-map.js"></script>
+  <script src="../js/capacity_map.js"></script>
 
 </head>
 
 <body>
-
-<label for="year-select">Technology:</label>
-
-<select class="tech-select" id='date-dropdown'>
-	<option value="">--Choose a technology--</option>
-    <option value="Solar Photovoltaic">Solar Photovoltaic</option>
-	<option value="Onshore Wind Turbine">Onshore Wind Turbine</option>
-</select>
-
-<div id="map-wrapper"></div>
-
+	<div class="center-container flex-col">
+		<div id="user-input-container">
+			<div id="year-input-container">
+				<label for="year-select">Year:</label>
+				<input type="range" id="year-slider" min="2012" max="2022" value="2018">
+			</div>
+			<div id="'tech-input-container">
+				<label for="tech-select">Technology:</label>
+				<select class="tech-select" id='tech-dropdown'>
+					<option value="">--Choose a technology--</option>
+					<option value="Solar Photovoltaic">Solar Photovoltaic</option>
+					<option value="Onshore Wind Turbine">Onshore Wind Turbine</option>
+				</select>
+			</div>
+		</div>
+		<div id="map-wrapper"></div>
+	</div>	
 </body>
