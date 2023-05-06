@@ -56,20 +56,28 @@ async function drawSolarMap () {
         // filter by year
         filteredData = solarDataset.filter((d) => d.op_year == year);
 
-        const plantGroup = wrapper.append("g")
+        const plantGroup = wrapper.append("g");
         const plantDots = plantGroup.selectAll("#circles")
-        .data(filteredData)
-        .enter()
-        .append("circle")
-            .attr("r", d => plantScale(capacity(d)))
+            .data(filteredData)
+            .enter()
+            .append("circle")
+            .attr("r", 0) // Set the initial radius to 0
             .attr("transform", d => plantProjection(d))
             .attr("fill", "#2F394B")
-            .attr("opacity", 0.7)
+            .attr("opacity", 0.7);
+
+        // Apply the transition to grow and then shrink the dots
+        plantDots.transition()
+            .duration(250) // Duration of the growing phase
+            .attr("r", d => plantScale(capacity(d)) * 1.2) // Make the dots 1.5 times bigger
+            .transition()
+            .duration(250) // Duration of the shrinking phase
+            .attr("r", d => plantScale(capacity(d))); // Set the final radius
 
     }
 
     // loop through years and add dots
-    for (let year = minYear; year <= maxYear; year++) {
+    for (let year = minYear; year <= 2010; year++) {
         setTimeout(() => {
             addDots(year);
         }, (year - minYear) * 500); // have to do this otherwise all years will be added at once (JS is async)
