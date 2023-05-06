@@ -3,6 +3,7 @@ async function drawSolarMap () {
      // Access data
     const plantDataset = await d3.csv("../data/all-power-plants.csv", d3.autoType)
     const usMapJson = await d3.json("../data/us-map-geojson.json")
+    const solarDataset = plantDataset.filter((d) => d.technology == "Solar Photovoltaic")
 
     // plant accessors and filters
     const plantLat = d => d.lat
@@ -37,25 +38,54 @@ async function drawSolarMap () {
 
     // Scales and geo converter
     const plantScale = d3.scaleLinear()
-        .domain(d3.extent(plantDataset, d => capacity(d)))
-        .range([1,10])
+        .domain(d3.extent(solarDataset, d => capacity(d)))
+        .range([2,10])
 
     function plantProjection (d) {   // create x, y coordinates for dot based on lat and long
-    return "translate("
-    + projection([plantLong(d),plantLat(d)])
-    + ")"
+        return "translate("+ projection([plantLong(d),plantLat(d)])+ ")"
     }
 
+    // Calculate the range of years in the dataset
+    const minYear = d3.min(solarDataset, (d) => d.op_year);
+    const maxYear = d3.max(solarDataset, (d) => d.op_year);
+
+
     // Create dots for each power plant and scale
-    const plantGroup = wrapper.append("g")
-    const plantDots = plantGroup.selectAll("#circles")
-    .data(plantDataset)
-    .enter()
-    .append("circle")
-        .attr("r", d => plantScale(capacity(d)))
-        .attr("transform", d => plantProjection(d))
-        .attr("fill", "#2F394B")
-        .attr("opacity", 0.7)
+    function addDots (year) {
+
+        // filter by year
+        filteredData = solarDataset.filter((d) => d.op_year == year);
+
+        const plantGroup = wrapper.append("g")
+        const plantDots = plantGroup.selectAll("#circles")
+        .data(filteredData)
+        .enter()
+        .append("circle")
+            .attr("r", d => plantScale(capacity(d)))
+            .attr("transform", d => plantProjection(d))
+            .attr("fill", "#2F394B")
+            .attr("opacity", 0.7)
+
+    }
+
+    // loop through years and add dots
+    for (let year = minYear; year <= maxYear; year++) {
+        setTimeout(() => {
+            addDots(year);
+        }, (year - minYear) * 500); // have to do this otherwise all years will be added at once (JS is async)
+    }
+
+    // old dot creator
+    // const plantGroup = wrapper.append("g")
+    // const plantDots = plantGroup.selectAll("#circles")
+    // .data(solarDataset)
+    // .enter()
+    // .append("circle")
+    //     .attr("r", d => plantScale(capacity(d)))
+    //     .attr("transform", d => plantProjection(d))
+    //     .attr("fill", "#2F394B")
+    //     .attr("opacity", 0.7)
+
 
 
 }
