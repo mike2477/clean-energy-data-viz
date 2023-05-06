@@ -49,12 +49,23 @@ async function drawSolarMap () {
     const minYear = d3.min(solarDataset, (d) => d.op_year);
     const maxYear = d3.max(solarDataset, (d) => d.op_year);
 
+    // Add a title with the year at the top of the map
+    const yearTitle = wrapper.append("text")
+        .attr("x", width / 2)
+        .attr("y", 100)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "24px")
+        .attr("font-weight", "bold")
+        .text(minYear);
 
     // Create dots for each power plant and scale
     function addDots (year) {
 
         // filter by year
         filteredData = solarDataset.filter((d) => d.op_year == year);
+
+        // Update the year title
+        yearTitle.text(year);
 
         const plantGroup = wrapper.append("g");
         const plantDots = plantGroup.selectAll("#circles")
@@ -80,7 +91,7 @@ async function drawSolarMap () {
     for (let year = minYear; year <= 2010; year++) {
         setTimeout(() => {
             addDots(year);
-        }, (year - minYear) * 500); // have to do this otherwise all years will be added at once (JS is async)
+        }, (year - minYear) * 750); // have to do this otherwise all years will be added at once (JS is async)
     }
 
     // old dot creator
