@@ -153,16 +153,6 @@ html, body {
   text-align: center;
 }
 
-select {
-  outline: 0;
-  border: 0;
-  box-shadow: none;
-  padding: 8px 8px;
-  border-radius: 2px;
-  color: #fff;
-  background-color: #3D405B;
-  cursor: pointer;
-}
 
 /* Sticky / scrolly */
 
@@ -216,6 +206,13 @@ select {
     width: 90%; /* Change width to a percentage for smaller screens */
     height: 60%; 
   }
+}
+
+/* Solar story (scrolly) */
+
+#solar-time-series-map-wrapper {
+  width: 1200px;
+  height: 800px;
 }
 
 /* Bubbles / climate deniers page */
