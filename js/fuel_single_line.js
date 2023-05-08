@@ -50,7 +50,7 @@ async function drawSingleLine(stateName, fuel) {
     .attr("d", lineGenerator)
     .attr("fill", "none")
     .attr("stroke", "#DF7A5F")
-    .attr("stroke-width", 2);
+    .attr("stroke-width", 3);
 
   const xAxis = d3.axisBottom(xScale)
     .ticks(4);

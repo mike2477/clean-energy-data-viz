@@ -153,6 +153,16 @@ html, body {
   text-align: center;
 }
 
+/* Top solar capacity states page */
+
+#top-state-capacity-bar-chart-wrapper {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Sticky / scrolly */
 
