@@ -86,7 +86,7 @@ async function topStatesbyCapacity (year, technology) {
 // needs to be async to wait for each chart to load before moving on to the next
 async function loadTopStatesByCapacity() {
     for (let i = 2010; i <= 2022; i++) {
-      await topStatesbyCapacity(i, "Onshore Wind Turbine");
+      await topStatesbyCapacity(i, "Solar Photovoltaic");
     }
   }
   
