@@ -4,6 +4,19 @@ let dataset;
 async function loadAndDrawCharts() {
   dataset = await d3.json("../data/fuel_trends.json");
   drawAllCoalStates("alphabetical");
+
+  d3.select('#download-button')
+  .on('click', function() {
+      let chartDiv = document.getElementById('chart-container');
+      html2canvas(chartDiv, {scale: 2}).then(function(canvas) {
+          let img = canvas.toDataURL("image/png");
+          let link = document.createElement('a');
+          link.href = img;
+          link.download = 'decline-of-coal-in-50-states.png';
+          link.click();
+      });
+  });
+
 }
 
 // runs function in fuel_single_line.js to draw a single line for each state 
@@ -44,3 +57,6 @@ function sortCharts() {
 }
 
 loadAndDrawCharts();
+
+
+

@@ -10,10 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
   <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../js/d3.min.js"></script>
   <script src="../js/fuel_single_line.js"></script>
   <script src="../js/all_coal.js"></script>
-
 
 </head>
 
@@ -34,8 +34,13 @@
         </select>
       </div>
     </div>
-    <div class="center-container">
-        <div id="chart"></div>
+    <div id="download-chart-container" class="center-container">
+      <button id="download-button">Download image</button>
     </div>
+    <div id="chart-container" class="center-container flex-col" style="padding-top: 36px; background-color: #F4F1DE;">
+        <h3 style="color: #404040;">Coal power's share of total generation</h3>
+        <div id="chart" style="padding: 48px;"></div>
+    </div>
+    
   </section>
 </body>

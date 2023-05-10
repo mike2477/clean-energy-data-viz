@@ -39,6 +39,7 @@ async function drawSingleLine(stateName, fuel) {
     .attr("text-anchor", "middle")
     .attr("font-size", "16px")
     .attr("font-weight", "bold")
+    .attr("fill", "#404040")
     .text(stateName);
 
   const lineGenerator = d3.line()
