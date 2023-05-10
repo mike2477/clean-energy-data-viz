@@ -264,3 +264,15 @@ html, body {
   display: flex;
   flex-direction: row;
 }
+
+/* Planned gas map */
+#planned-gas-map-wrapper {
+  width: 800px;
+  height: 600px;
+}
+
+#gas-map {
+  fill: #F4F1DE;
+  stroke: #3D405B;
+  stroke-width: 1px;
+}
