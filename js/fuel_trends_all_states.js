@@ -45,13 +45,14 @@ async function drawLineChart(stateName) {
   // create lines
   const fuelColors = {
     coal_share: "#DF7A5F",
-    natural_gas_share: "#F1CC90",
+    natural_gas_share: "#A9A9A9",
     conventional_hydroelectric_share: "#5E60CE",
     nuclear_share: "#3D405B",
-    wind_share: "#80B29B"
+    wind_share: "#80B29B",
+    all_utility_scale_solar_share: "#F1CC90"
   };
 
-  for (const fuelType of ["coal_share", "natural_gas_share", "conventional_hydroelectric_share", "nuclear_share", "wind_share"]) {
+  for (const fuelType of ["coal_share", "natural_gas_share", "conventional_hydroelectric_share", "nuclear_share", "wind_share", "all_utility_scale_solar_share"]) {
     const lineGenerator = d3.line()
       .x(d => xScale(xAccessor(d)))
       .y(d => yScale(d[fuelType]));

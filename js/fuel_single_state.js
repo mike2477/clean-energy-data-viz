@@ -28,7 +28,7 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
       .attr("x", width / 2)
       .attr("y", -margin.top / 2)
       .attr("text-anchor", "middle")
-      .attr("font-size", "24px")
+      .attr("font-size", "20px")
       .attr("font-weight", "bold")
       .text(stateName);
   
@@ -47,7 +47,7 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
     // create lines
     const fuelColors = {
         coal_share: "#DF7A5F",
-        natural_gas_share: "#F1CC90",
+        natural_gas_share: "#A9A9A9",
         conventional_hydroelectric_share: "#5E60CE",
         nuclear_share: "#3D405B",
         wind_share: "#80B29B",
@@ -81,7 +81,36 @@ async function drawSingleState(stateName, chartDiv, fuelsToShow) {
   
     svg.append("g")
       .call(yAxis);
-  
+
+    // map fuel names for legend
+    const fuelNames = {
+      coal_share: "Coal",
+      natural_gas_share: "Natural Gas",
+      conventional_hydroelectric_share: "Hydro",
+      nuclear_share: "Nuclear",
+      wind_share: "Wind",
+      all_utility_scale_solar_share: "Solar"
+    };
+
+    // create legend
+    const legend = svg.selectAll(".legend")
+      .data(fuelsToShow)
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", (d, i) => `translate(0,${i * 20})`);
+
+    legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", d => fuelColors[d]);
+
+    legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(d => fuelNames[d]);    
   }
   
   

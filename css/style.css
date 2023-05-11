@@ -276,3 +276,10 @@ html, body {
   stroke: #3D405B;
   stroke-width: 1px;
 }
+
+/* Highlight states */
+
+.highlight-chart {
+  width: 600px;
+  height: 400px;
+}
