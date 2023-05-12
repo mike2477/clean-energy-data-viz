@@ -46,7 +46,7 @@ function drawAllCoalStates(sortBy) {
 
   // Loop through each state and call drawSingleLine with the state name
   for (const stateName of sortedStates) {
-    drawSingleLine(stateName, "coal_share");
+    drawSingleLine(stateName, "coal_share", "#coal-charts-wrapper");
   }
 }
 

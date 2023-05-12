@@ -1,5 +1,5 @@
 // create d3 function to create line chart
-async function drawSingleLine(stateName, fuel) {
+async function drawSingleLine(stateName, fuel, chartDiv) {
 
   // access data
   const dataset = await d3.json("../data/fuel_trends.json")
@@ -12,7 +12,7 @@ async function drawSingleLine(stateName, fuel) {
   const margin = {top: 50, right: 40, bottom: 40, left: 40};
 
   // create svg
-  const svg = d3.select("#chart")
+  const svg = d3.select(chartDiv)
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)

@@ -178,6 +178,24 @@ html, body {
   text-align: center;
 }
 
+#coal-charts-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  #coal-charts-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  #coal-charts-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Top solar capacity states page */
 
 #top-state-capacity-bar-chart-wrapper {
