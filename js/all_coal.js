@@ -24,7 +24,7 @@ async function loadAndDrawCharts() {
 
 function drawAllCoalStates(sortBy) {
   // Clear the chart container
-  d3.select("#chart").html("");
+  d3.select("#coal-charts-wrapper").html("");
 
   // Sort the dataset based on the selected option
   let sortedStates = Object.keys(dataset);
