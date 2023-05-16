@@ -202,6 +202,18 @@ html, body {
   }
 }
 
+/* Solar state capacity history */
+
+#solar-bar-chart-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 48px;
+}
+
+#solar-bar-chart-wrapper svg {
+  margin-top: 36px;
+}
+
 
 /* Top solar capacity states page */
 

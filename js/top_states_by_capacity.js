@@ -10,6 +10,8 @@ async function topStatesbyCapacity (year, technology) {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10);
 
+    console.log(sortedStates);
+
     // Chart dimensions
     const windowWidth = window.innerWidth;
     const width = windowWidth < 520 ? windowWidth * 0.8 : 800;
@@ -21,6 +23,8 @@ async function topStatesbyCapacity (year, technology) {
         .domain(sortedStates.map(d => d[0]))
         .rangeRound([0, width])
         .padding(0.1);
+    
+    console.log(sortedStates.map(d => d[0]))
 
     const y = d3.scaleLinear()
         .domain([0, d3.max(sortedStates, d => d[1])])
