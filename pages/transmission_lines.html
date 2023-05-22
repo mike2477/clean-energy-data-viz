@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- Required meta tags -->
+	<title>Capacity map</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+  <!-- JS -->
+  <script src="../js/d3.min.js"></script>
+  <script src="../js/transmission_lines.js"></script>
+
+</head>
+
+<body>
+	<section class="beige-bg full-screen">
+		<div id="transmission-header-container" class="flex-col">
+			<h3>Transmission lines in America</h3>
+			<h3 class="thin-h-small">
+				There are hundreds of thousands of miles of transmission lines in the United States. 
+				Here's where they are located.
+			</h3>
+		</div>
+		<div id="transmission-map-container" class="flex-col">
+			<div id="transmission-legend" class="flex-row">
+				<div id="high-voltage-group" class="flex-row transmission-key-group">
+					<div id="low-voltage-key"></div>
+					<p class="key-text">69 to 200 kV</p>
+				</div>
+				<div id="high-voltage-group" class="flex-row transmission-key-group">
+					<div id="high-voltage-key"></div>
+					<p class="key-text">200 kV and above</p>
+				</div>
+			</div>
+			<div id="transmission-line-map-wrapper"></div>
+		</div>	
+	</section>
+</body>

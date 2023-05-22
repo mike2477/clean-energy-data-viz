@@ -92,6 +92,13 @@ html, body {
   line-height: 2rem;
 }
 
+.thin-h-small {
+  margin-top: 0.2rem;
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .blog-container {
   max-width: 42rem;
   margin-left: auto;
@@ -111,6 +118,11 @@ html, body {
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .full-screen {
@@ -313,6 +325,74 @@ html, body {
   stroke: #3D405B;
   stroke-width: 1px;
 }
+
+/* Transmission map */
+#transmission-line-map-wrapper {
+  width: 1000px;
+  height: 666px;
+  margin-bottom: 72px;
+}
+
+.all-transmission-lines {
+  fill: #F4F1DE;
+  stroke: #3D405B;
+  stroke-width: 0.25px;
+}
+
+.high-voltage-lines {
+  fill: #F4F1DE;
+  stroke: #3D405B;
+  stroke-width: 1.5px;
+}
+
+.base-transmission-map {
+  fill: #F4F1DE;
+  stroke: #3D405B;
+  stroke-width: 1px;
+}
+
+#transmission-header-container {
+  max-width: 42rem;
+  padding-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#transmission-map-container {
+  align-items: center;
+}
+
+#transmission-legend {
+  gap: 32px;
+  position: absolute;
+  top: 190px;
+}
+
+.transmission-key-group {
+  align-items: center;
+}
+
+.key-text {
+  font-size: 1.1rem;
+  margin: 0;
+  padding-left: 8px;
+}
+
+#high-voltage-key {
+  background-color: #3D405B;
+  width: 20px;
+  height: 3px;
+}
+
+#low-voltage-key {
+  background-color: #3D405B;
+  width: 20px;
+  height: 1.5px;
+}
+
 
 /* Highlight states */
 
